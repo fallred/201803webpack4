@@ -27,7 +27,12 @@ module.exports = {
                     // }
                     'log-loader1.js',
                     'log-loader2.js',
-                    'log-loader3.js'
+                    {
+                        loader: 'log-loader3',
+                        options: {
+                            name: 'zfpx'
+                        }
+                    }
                 ]
             },
             {
