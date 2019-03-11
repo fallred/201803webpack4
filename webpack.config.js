@@ -16,13 +16,11 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: {
-                    loader: 'banner-loader',
-                    options: {
-                        filename: path.resolve(__dirname,'banner.js'),
-                        text: '/**珠峰培训**/'
-                    }
-                }
+                use: [
+                    'log-loader1.js',
+                    'log-loader2.js',
+                    'log-loader3.js'
+                ]
             },
             {
                 test: /\.css$/,
