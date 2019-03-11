@@ -25,7 +25,9 @@ module.exports = {
 
                         // loader: path.resolve(__dirname, 'src', 'loaders', 'log-loader')
                     // }
-                    'log-loader1.js','log-loader2.js'
+                    'log-loader1.js',
+                    'log-loader2.js',
+                    'log-loader3.js'
                 ]
             },
             {
