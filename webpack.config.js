@@ -16,29 +16,21 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                use: [
-                    // {
-                        // loader: 'babel-loader',
-                        // query: {
-                        //     preset: ["env", "stage-0", "react"]
-                        // }
-
-                        // loader: path.resolve(__dirname, 'src', 'loaders', 'log-loader')
-                    // }
-                    'log-loader1.js',
-                    'log-loader2.js',
-                    {
-                        loader: 'log-loader3',
-                        options: {
-                            name: 'zfpx'
-                        }
+                loader: {
+                    loader: 'banner-loader',
+                    options: {
+                        filename: path.resolve(__dirname,'banner.js'),
+                        text: '/**珠峰培训**/'
                     }
-                ]
+                }
             },
             {
                 test: /\.css$/,
                 use: ['style-loader','css-loader']
             }
         ]
-    }
+    },
+    // plugins: [
+    //     new webpack.BannerPlugin('/**zfpx**/')
+    // ]
 };
