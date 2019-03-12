@@ -14,17 +14,18 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     use: [
+            //         'log-loader1.js',
+            //         'log-loader2.js',
+            //         'log-loader3.js'
+            //     ],
+            //     exclude:/node_modules/
+            // },
             {
-                test: /\.js$/,
-                use: [
-                    'log-loader1.js',
-                    'log-loader2.js',
-                    'log-loader3.js'
-                ]
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader','css-loader']
+                test: /\.less$/,
+                use: ['style1-loader','less1-loader']
             }
         ]
     },
