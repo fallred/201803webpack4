@@ -28,10 +28,22 @@ module.exports = {
             {
                 test: /\.less$/,
                 // 先走style1-loader的pitch方法，不再走less1-loader了
-                use: ['style1-loader','less1-loader'],
+                // use: ['style1-loader','less1-loader'],
                 // use: ['exact-loader','less1-loader']
                 // 放在最左边的loader必须返回一个js脚本，因为这个脚本要拿过来进行AST语法书
                 // use: ['less1-loader']
+            },
+            {
+                test: /\.(jpg|png|gif)$/,
+                // loader: 'file1-loader'
+                use: {
+                    loader: 'file1-loader',
+                    options: {
+                        // webpack自带属性，将文件拷贝到输出目录
+                        // outputPath: 'image/[hash]',
+                        patten: 'image/[hash]'
+                    }
+                }
             }
         ]
     },
