@@ -1,9 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin= require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        main: './src/index.js'
+        main1: './src/main1.js',
+        main2: './src/main2.js'
+    },
+    output: {
+        filename: '[name].js'
     },
     // 单独配置解析loader路径
     resolveLoader: {
@@ -50,10 +55,28 @@ module.exports = {
                         fallback: 'file-loader'
                     }
                 }
+            },
+            {
+                test: /\.(html|htm)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        layout: path.resolve(__dirname, 'src/loaders/layout.html')
+                    }
+                }
             }
         ]
     },
-    // plugins: [
-    //     new webpack.BannerPlugin('/**zfpx**/')
-    // ]
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/html/main1.html',
+            filename: 'main1.hml',
+            chunks: ['main1']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/html/main2.html',
+            filename: 'main2.hml',
+            chunks: ['main2']
+        }),
+    ]
 };
