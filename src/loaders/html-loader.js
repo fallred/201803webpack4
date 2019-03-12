@@ -12,6 +12,7 @@ function loader(source) {
         console.log('this.context', this.context); 
         customLayout = path.resolve(this.context, customLayout);
         fs.readFile(customLayout, 'utf8', (err, data)=>{
+            source = source.replace(result[0], '');
             source = data.replace('{{_content_}}', source);
             cb(err, `module.exports = ${JSON.stringify(source)}`);
         });
