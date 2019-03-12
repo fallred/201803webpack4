@@ -12,6 +12,12 @@ module.exports = {
             path.resolve('src', 'loaders')
         ]
     },
+    resolve: {
+        modules:[
+            path.resolve('node_modules'),
+            path.resolve('src', 'loaders')
+        ]
+    },
     module: {
         rules: [
             // {
@@ -37,11 +43,11 @@ module.exports = {
                 test: /\.(jpg|png|gif)$/,
                 // loader: 'file1-loader'
                 use: {
-                    loader: 'file1-loader',
+                    loader: 'url1-loader',
                     options: {
-                        // webpack自带属性，将文件拷贝到输出目录
-                        // outputPath: 'image/[hash]',
-                        patten: 'image/[hash]'
+                        limit: 1024,
+                        // 不需要转换，或者转换失败，由它来处理
+                        fallback: 'file-loader'
                     }
                 }
             }
